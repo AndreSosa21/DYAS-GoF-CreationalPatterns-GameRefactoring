@@ -1,6 +1,9 @@
 # Universidad de la Sabana
 ## Diseño y Arquitectura de Software
-
+## Paso a seguir para probar el juego:
+## se define como true el uso de Sprites y false como vectors y colorfulvector
+## para probar sprites, modificar useSprite a True en lineas 30 y 204 del archivo game.java
+## para probar vectors, modificar la fabrica a factory = new VectorsFactory(); : linea 70 del archivo game.java
 
 
 Software de microcontrolador para la fabricación automática de pizza.
