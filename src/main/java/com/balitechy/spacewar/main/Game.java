@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
+import com.balitechy.interfaces.ColorfulVectorsFactory;
 import com.balitechy.interfaces.SpritesFactory;
 import com.balitechy.interfaces.VectorsFactory;
 import com.balitechy.interfaces.gameFactory;
@@ -66,7 +67,7 @@ public class Game extends Canvas implements Runnable {
             player = factory.crearPlayerFactory(this);
         } else {
             // Se asume que tienes una clase VectorFactory que implementa gameFactory.
-            factory = new VectorsFactory();
+            factory = new ColorfulVectorsFactory();
             backgRenderer = factory.crearBackgroundFactory();
             bullets = factory.crearBulletFactory(this);
             player = factory.crearPlayerFactory(this);
