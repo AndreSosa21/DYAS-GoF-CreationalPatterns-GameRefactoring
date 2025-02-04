@@ -6,8 +6,10 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class BackgroundRenderer {
+import com.balitechy.interfaces.backgroundFactory;
 
+public class SpritesBackgroundRenderer implements backgroundFactory {
+	@Override
 	public void render(Graphics g, Canvas c) throws IOException{
 		BufferedImage background = null;
 		SpritesImageLoader bg;

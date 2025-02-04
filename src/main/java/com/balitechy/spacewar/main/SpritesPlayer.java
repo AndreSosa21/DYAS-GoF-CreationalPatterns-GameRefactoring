@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-public class Player {
+import com.balitechy.interfaces.playerFactory;
+
+public class SpritesPlayer implements playerFactory {
 	
 	private double x;
 	private double y;
@@ -18,7 +20,7 @@ public class Player {
 	private BufferedImage image;
 	private Game game;
 	
-	public Player(double x, double y, Game game){
+	public SpritesPlayer(double x, double y, Game game){
 		this.x = x;
 		this.y = y;
 		this.game = game;
@@ -26,36 +28,36 @@ public class Player {
 		// Get image for Player		
 		image = game.getSprites().getImage(219, 304, WIDTH, HEIGHT);
 	}
-	
+	@Override
 	public double getX() {
 		return x;
 	}
-
+	@Override
 	public void setX(double x) {
 		this.x = x;
 	}
-
+	@Override
 	public double getY() {
 		return y;
 	}
-
+	@Override
 	public void setY(double y) {
 		this.y = y;
 	}
-
+	@Override
 	public void setVelX(double velX) {
 		this.velX = velX;
 	}
-
+	@Override
 	public void setVelY(double velY) {
 		this.velY = velY;
 	}
-	
+	@Override
 	public void shoot(){
-		Bullet b = new Bullet(x+(WIDTH/2)-5, y-18, game);
+		SpritesBullet b = new SpritesBullet(x+(WIDTH/2)-5, y-18, game);
 		game.getBullets().addBullet(b);
 	}
-
+	@Override
 	public void tick(){
 		x += velX;
 		y += velY;
@@ -70,7 +72,7 @@ public class Player {
 		if(y >= (Game.HEIGHT * Game.SCALE) - HEIGHT)
 			y = (Game.HEIGHT * Game.SCALE) - HEIGHT;
 	}
-	
+	@Override
 	public void render(Graphics g){
 		g.setColor(Color.white);
 		g.drawImage(image, (int) x, (int) y, null);
